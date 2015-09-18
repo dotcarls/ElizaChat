@@ -19,8 +19,13 @@ io.on('connection', function(socket) {
 	});
 	
 	socket.on("chat message", function(message, name) {
+		var reply = ElizaBot.reply(message);
+
 		io.emit("chat message", name +": " +message);
-		io.emit("chat message", "Eliza: " + ElizaBot.reply(message));
+		io.emit("chat message", "Eliza: " + reply);
+
+		console.log("CHATLOG: " + name + ": " + message);
+		console.log("CHATLOG: Eliza: " + reply);
 	});
 	
 	console.log("Client connected");
