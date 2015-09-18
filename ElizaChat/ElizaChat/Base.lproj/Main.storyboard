@@ -69,10 +69,6 @@
                                 <rect key="frame" x="16" y="562" width="499" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="textFieldDidBeginEditing:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AtP-ZY-a1F"/>
-                                    <action selector="textFieldDidEndEditing:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="hye-jm-rvt"/>
-                                </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E3J-tx-Qxm">
                                 <rect key="frame" x="348" y="523" width="51" height="31"/>

@@ -1,8 +1,13 @@
-var port = process.env.PORT || 1337;
+var port = process.env.PORT || 14638;
 var host = process.env.HOST || 'localhost'
 
-var io = require('socket.io')(port);
+console.log("SocketIO server starting on " + host + ":" + port);
 
+var io = require('socket.io')(port);
+var ElizaBot = require('./elizabot.js');
+
+console.log("Starting Eliza");
+ElizaBot.start();
 
 io.on('connection', function(socket) {
 	socket.emit("connected");
@@ -15,6 +20,7 @@ io.on('connection', function(socket) {
 	
 	socket.on("chat message", function(message, name) {
 		io.emit("chat message", name +": " +message);
+		io.emit("chat message", "Eliza: " + ElizaBot.reply(message));
 	});
 	
 	console.log("Client connected");
