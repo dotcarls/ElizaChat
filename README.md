@@ -18,3 +18,6 @@ node app.js
 
 
 Contact: dotcarls@indiana.edu
+
+
+elizabot.js is from https://github.com/brandongmwong/elizabot-js which is based on www.masswerk.at/elizabot and http://en.wikipedia.org/wiki/ELIZA
