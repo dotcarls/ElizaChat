@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     var theClient:Client
 
     required init(coder aDecoder: NSCoder) {
-        // By default, connect to local socket
-        theSocket = SocketIOClient(socketURL: "127.0.0.1:14638")
+        // By default, connect to silo
+        theSocket = SocketIOClient(socketURL: "silo.cs.indiana.edu:14638")
         theClient = Client(socket: self.theSocket)
         
         super.init(coder: aDecoder)
