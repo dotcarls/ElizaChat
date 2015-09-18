@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     @IBAction func setHost(sender: UISwitch) {
         let state = stateSwitch.on
         
-        if (state) {
+        if (!state) {
             self.theSocket = SocketIOClient(socketURL: "silo.cs.indiana.edu:14638")
             self.theClient = Client(socket: self.theSocket)
         } else {
