@@ -3,7 +3,7 @@
 		<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script>
-			var socket = io.connect('http://localhost:14638');
+			var socket = io.connect(document.location.protocol+'//'+document.location.host);
 			socket.on("chat message", function(data) {
 				$('#chatlog').append("<br>" + data);
 			});
