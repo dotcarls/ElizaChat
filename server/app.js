@@ -3,13 +3,22 @@ var host = process.env.HOST || 'localhost'
 
 console.log("SocketIO server starting on " + host + ":" + port);
 
-var io = require('socket.io')(port);
+var app = require('express')();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 var ElizaBot = require('./elizabot.js');
+
+server.listen(port);
+
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/index.html');
+});
 
 console.log("Starting Eliza");
 ElizaBot.start();
 
 io.on('connection', function(socket) {
+	io.emit("updateCount", io.engine.clientsCount)
 	socket.emit("connected");
 	socket.emit("chat message", "You are now connected to " + host + ".\nThere are currently " + io.engine.clientsCount + " connections.");
 
@@ -28,5 +37,9 @@ io.on('connection', function(socket) {
 		console.log("CHATLOG: Eliza: " + reply);
 	});
 	
+	socket.on("disconnect", function() {
+		io.emit("updateCount", io.engine.clientsCount);
+	});
+
 	console.log("Client connected");
 });

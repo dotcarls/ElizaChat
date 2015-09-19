@@ -72,8 +72,9 @@ class ViewController: UIViewController {
     @IBAction func sendMessage(sender: UIButton) {
         var message = chatInput.text;
         chatInput.text = "";
-        
-        self.theSocket.emit("chat message", message, theClient.getName())
+        if message != "" {
+            self.theSocket.emit("chat message", message, theClient.getName())
+        }
     }
     
     @IBAction func setHost(sender: UISwitch) {
