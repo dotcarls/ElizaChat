@@ -30,6 +30,8 @@ node app.js
 ```
 
 
+A monitoring page is available at the same address as the socket server. For example: http://silo.cs.indiana.edu:14638
+
 Contact: dotcarls@indiana.edu
 
 
