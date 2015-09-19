@@ -11,6 +11,10 @@
 			socket.on("updateCount", function(count) {
 				$('#currentUsers').text(count);
 			});
+
+			socket.on("connected", function() {
+				socket.emit("welcome", "Web User");
+			});
 		</script>
 	</head>
 
