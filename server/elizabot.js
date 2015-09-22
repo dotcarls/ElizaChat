@@ -12,6 +12,10 @@ exports.start = function () {
 	return this.bot.getInitial();
 }
 
+exports.greet = function() {
+	return this.bot.getInitial();
+}
+
 exports.bye = function () {
 	if (this.bot == null) {
 		this.bot = new ElizaBot(false);
@@ -24,11 +28,11 @@ function ElizaBot(noRandomFlag) {
 	this.elizaInitials = [
 		"How do you do.  Please tell me your problem.",
 		"Please tell me what's been bothering you.",
-		"Is something troubling you ?",
-		"Im here. Talk to me.",
-		"Talk to me",
+		"Is something troubling you?",
+		"I'm here. Talk to me.",
+		"Talk to me.",
 		"Top of the morning to you.",
-		"Thanks for waking me up"
+		"Thanks for waking me up."
 	];
 
 	this.elizaKeywords = [

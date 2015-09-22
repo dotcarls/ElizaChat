@@ -24,7 +24,9 @@ io.on('connection', function(socket) {
 
 	socket.on("welcome", function(name) {
 		console.log("Welcoming: " + name);
-		io.emit("chat message", "Eliza: Welcome " + name + "!");
+
+		var welcomeMessage = ElizaBot.greet();
+		io.emit("chat message", "Eliza: Welcome " + name + "! " + welcomeMessage);
 	});
 	
 	socket.on("chat message", function(message, name) {
