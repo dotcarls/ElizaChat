@@ -26,17 +26,17 @@ io.on('connection', function(socket) {
 		console.log("Welcoming: " + name);
 
 		var welcomeMessage = ElizaBot.greet();
-		io.emit("chat message", "Eliza: Welcome " + name + "! " + welcomeMessage);
+		io.emit("chat message", "Clint: Welcome " + name + "! " + welcomeMessage);
 	});
 	
 	socket.on("chat message", function(message, name) {
 		var reply = ElizaBot.reply(message);
 
 		io.emit("chat message", name +": " +message);
-		io.emit("chat message", "Eliza: " + reply);
+		io.emit("chat message", "Clint: " + reply);
 
 		console.log("CHATLOG: " + name + ": " + message);
-		console.log("CHATLOG: Eliza: " + reply);
+		console.log("CHATLOG: Clint: " + reply);
 	});
 	
 	socket.on("disconnect", function() {

@@ -1,5 +1,12 @@
 <html>
 	<head>
+		<style>
+			#inputContainer {
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+			}
+		</style>
 		<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
 		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script>
@@ -15,6 +22,7 @@
 			socket.on("connected", function() {
 				socket.emit("welcome", "Web User");
 			});
+			
 		</script>
 	</head>
 
@@ -24,5 +32,25 @@
 		</div>
 		<br>
 		<div id="chatlog"></div>
+		<div id="inputContainer">
+			<input id="chatInput" style="width:95%; float: left;">
+			<button id="sendButton" style="width:4%; float: left;">Send</button>
+		</div>
+	<script>
+		$("#sendButton").click(function() { 
+			console.log("clicked"); 
+			var message = $("#chatInput").val();
+			$("#chatInput").val("");
+			socket.emit("chat message", message, "Web User");
+		});
+
+		$("#chatInput").bind('keypress', function(e) {
+			if (e.keyCode == 13) {
+				var message = $("#chatInput").val();
+				$("#chatInput").val("");
+				socket.emit("chat message", message, "Web User");
+			}
+		});
+	</script>
 	</body>
 </html>
